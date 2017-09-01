@@ -54,5 +54,21 @@ namespace SistemaFerias
             frm_Venda frm = new frm_Venda();
             frm.Show();
         }
+
+        private void produtosToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            frm_rel_produtos frm = new frm_rel_produtos();
+            frm.Show();
+        }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

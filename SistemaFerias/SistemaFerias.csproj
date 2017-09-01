@@ -33,9 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,6 +50,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DS_relatorios_produtos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_relatorios_produtos.xsd</DependentUpon>
+    </Compile>
     <Compile Include="frm_categorias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,11 +67,23 @@
     <Compile Include="frm_ConsultaProdutos.Designer.cs">
       <DependentUpon>frm_ConsultaProdutos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_login.Designer.cs">
+      <DependentUpon>frm_login.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_Produtos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm_Produtos.Designer.cs">
       <DependentUpon>frm_Produtos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_rel_produtos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_rel_produtos.Designer.cs">
+      <DependentUpon>frm_rel_produtos.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_Venda.cs">
       <SubType>Form</SubType>
@@ -85,8 +105,14 @@
     <EmbeddedResource Include="frm_ConsultaProdutos.resx">
       <DependentUpon>frm_ConsultaProdutos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_login.resx">
+      <DependentUpon>frm_login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_Produtos.resx">
       <DependentUpon>frm_Produtos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_rel_produtos.resx">
+      <DependentUpon>frm_rel_produtos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Venda.resx">
       <DependentUpon>frm_Venda.cs</DependentUpon>
@@ -103,14 +129,25 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="Properties\DataSources\Sistemas.DAL.Categoria.datasource" />
+    <EmbeddedResource Include="Relatorios\rel_Produtos.rdlc" />
+    <None Include="DS_relatorios_produtos.xsc">
+      <DependentUpon>DS_relatorios_produtos.xsd</DependentUpon>
+    </None>
+    <None Include="DS_relatorios_produtos.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_relatorios_produtos.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DS_relatorios_produtos.xss">
+      <DependentUpon>DS_relatorios_produtos.xsd</DependentUpon>
+    </None>
     <None Include="Properties\DataSources\Sistemas.DAL.Categorias.datasource" />
     <None Include="Properties\DataSources\Sistemas.DAL.Contas_receber.datasource" />
     <None Include="Properties\DataSources\Sistemas.DAL.ItensVenda.datasource" />
     <None Include="Properties\DataSources\Sistemas.DAL.Pessoas.datasource" />
     <None Include="Properties\DataSources\Sistemas.DAL.Produto.datasource" />
     <None Include="Properties\DataSources\Sistemas.DAL.status_pagamento.datasource" />
-    <None Include="Properties\DataSources\Sistemas.DAL.Usuarios.datasource" />
+    <None Include="Properties\DataSources\Sistemas.DAL.Usuario.datasource" />
     <None Include="Properties\DataSources\Sistemas.DAL.Venda.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -131,6 +168,7 @@
       <Name>Sistemas.DAL</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

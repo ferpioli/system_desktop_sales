@@ -16,7 +16,13 @@ namespace SistemaFerias
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_Menu());
+            frm_login frm = new frm_login();
+            frm.ShowDialog();
+
+            if (frm.logado == true)
+            {
+                Application.Run(new frm_Menu());
+            }
         }
     }
 }
